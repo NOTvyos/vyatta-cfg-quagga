@@ -64,12 +64,8 @@ my %qcom = (
       del => undef,
   },
   'protocols bgp var address-family ipv6-unicast aggregate-address var' => {
-      set => 'router bgp #3 ; address-family ipv6 ; aggregate-address #7 ?summary-only',
-      del => 'router bgp #3 ; address-family ipv6 ; no aggregate-address #7',
-  },
-  'protocols bgp var address-family ipv6-unicast aggregate-address var route-map' => {
-      set => 'router bgp #3 ; address-family ipv6 unicast ; no aggregate-address #7 ; aggregate-address #7 route-map #9',
-      del => 'router bgp #3 ; address-family ipv6 unicast ; no aggregate-address #7 route-map #9 ; aggregate-address #7',
+      set => 'router bgp #3 ; address-family ipv6 ; aggregate-address #7 ?summary-only ?route-map',
+      del => 'router bgp #3 ; address-family ipv6 ; no aggregate-address #7 ?summary-only ?route-map',
   },
   'protocols bgp var address-family ipv6-unicast network' => {
       set => undef,
@@ -147,12 +143,8 @@ my %qcom = (
       del => undef,
   },
   'protocols bgp var address-family ipv4-unicast aggregate-address var' => {
-      set => 'router bgp #3 ; address-family ipv4 unicast ; aggregate-address #7 ?as-set ?summary-only',
-      del => 'router bgp #3 ; address-family ipv4 unicast ; no aggregate-address #7 ?as-set ?summary-only',
-  },
-  'protocols bgp var address-family ipv4-unicast aggregate-address var route-map' => {
-      set => 'router bgp #3 ; address-family ipv4 unicast ; no aggregate-address #7 ; aggregate-address #7 route-map #9',
-      del => 'router bgp #3 ; address-family ipv4 unicast ; no aggregate-address #7 route-map #9 ; aggregate-address #7',
+      set => 'router bgp #3 ; address-family ipv4 unicast ; aggregate-address #7 ?as-set ?summary-only ?route-map',
+      del => 'router bgp #3 ; address-family ipv4 unicast ; no aggregate-address #7 ?as-set ?summary-only ?route-map',
   },
   'protocols bgp var address-family ipv4-unicast network' => {
       set => undef,
