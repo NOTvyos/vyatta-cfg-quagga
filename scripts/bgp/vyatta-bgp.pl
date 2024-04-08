@@ -1706,16 +1706,22 @@ sub confed_iBGP_ASN {
     my @neighbors = $config->listOrigNodes('neighbor');
     foreach my $neighbor (@neighbors) {
       my $remoteas = $config->returnValue("neighbor $neighbor remote-as");
-      if (("$testas" eq "$remoteas") || ("$testas" eq "internal")) {
-        exit 1;
+      if (defined $remoteas) {
+        if (("$testas" eq "$remoteas") || ("$testas" eq "internal")) {
+          exit 1;
+        }
       }
       $remoteas = $config->returnValue("neighbor $neighbor interface remote-as");
-      if (("$testas" eq "$remoteas") || ("$testas" eq "internal")) {
-        exit 1;
+      if (defined $remoteas) {
+        if (("$testas" eq "$remoteas") || ("$testas" eq "internal")) {
+          exit 1;
+        }
       }
       $remoteas = $config->returnValue("neighbor $neighbor interface v6only remote-as");
-      if (("$testas" eq "$remoteas") || ("$testas" eq "internal")) {
-        exit 1;
+      if (defined $remoteas) {
+        if (("$testas" eq "$remoteas") || ("$testas" eq "internal")) {
+            exit 1;
+        }
       }
     }
 
